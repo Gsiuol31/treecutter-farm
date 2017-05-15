@@ -1,0 +1,44 @@
+--this is a function that returns the name of a block
+--The function is called turtle.eduinspect(), but 
+--feel free to change to whatever you like!
+
+
+function turtle.eduinspect()
+--this checks the block using the inspect() function
+  local success, block = turtle.inspect()
+  if block.name == nil then -- if there is nothing, first option
+    return "nothing here"
+  else
+    return block.name --which is minecraft:blockname
+  end
+end
+
+print(turtle.eduinspect()) --this prints the value, to the screen!
+
+function treecutter()
+	if turtle.eduinspect() == "minecraft:log" then
+		for x = 1, 10 do
+    turtle.dig()
+    turtle.digUp()
+    turtle.up()
+  end
+ else
+   for x = 1, 10 do
+		   turtle.down()
+	  end
+ end
+end
+local function movement()
+	turtle.turnRight()
+	for x = 1,4 do
+		turtle.forward()
+	end
+	turtle.turnLeft()
+end
+for x = 1, 8 do
+ if turtle.eduinspect() == "minecraft ; log" then
+	treecutter()
+  else
+    movement()
+ end
+end
