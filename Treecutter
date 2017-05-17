@@ -18,27 +18,25 @@ print(turtle.eduinspect()) --this prints the value, to the screen!
 function treecutter()
 	if turtle.eduinspect() == "minecraft:log" then
 		for x = 1, 10 do
-    turtle.dig()
-    turtle.digUp()
-    turtle.up()
-  end
- else
-   for x = 1, 10 do
-		   turtle.down()
-	  end
- end
+   			turtle.dig()
+    			turtle.digUp()
+    			turtle.up()
+  		end
+ 	else
+   		for x = 1, 10 do
+			turtle.down()
+	  	end
+	end
 end
 local function movement()
 	turtle.turnRight()
-	for x = 1,4 do
-		turtle.forward()
-	end
+		for x = 1,4 do
+			turtle.forward()
+		end
 	turtle.turnLeft()
 end
 for x = 1, 8 do
- if turtle.eduinspect() == "minecraft ; log" then
 	treecutter()
-  else
-    movement()
- end
+    	movement()
 end
+
