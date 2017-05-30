@@ -1,0 +1,14 @@
+print ("Hello, We sell oak wood here")
+print ("The prices for 16 oak wood which can be turned into a stack of oak wood planhs is")
+print ("is 1 diamond")
+while true do
+  turtle.suck()
+  if turtle.getItemDetail(2) = "minecraft : diamond" then
+    turtle.select ( 1 )
+    turtle.drop()
+    turtle.turnLeft()
+    turtle.select ( 2 )
+    turtle.drop()
+    turtle.turnRight()
+  end
+end
