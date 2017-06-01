@@ -1,4 +1,4 @@
---this is a function that returns the name of a block
+----this is a function that returns the name of a block
 --The function is called turtle.eduinspect(), but 
 --feel free to change to whatever you like!
 
@@ -15,7 +15,7 @@ end
 
 print(turtle.eduinspect()) --this prints the value, to the screen!
 
-function treecutter()
+function treecutter()--This is the function that makes the turtle cut the tree when it detects a wood block
 	if turtle.eduinspect() == "minecraft:log" then
 		for x = 1, 10 do
    			turtle.dig()
@@ -28,7 +28,7 @@ function treecutter()
 	  	end
 	end
 end
-local function movement()
+local function movement()--This function allows the turtle to move to another tree once it has cut one down
 	turtle.turnRight()
 		for x = 1,4 do
 			turtle.forward()
