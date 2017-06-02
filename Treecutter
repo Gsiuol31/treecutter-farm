@@ -1,8 +1,8 @@
-----this is a function that returns the name of a block
---The function is called turtle.eduinspect(), but 
+--this is a function that returns the name of a block
+--The function is called turtle.eduinspect(), but
 --feel free to change to whatever you like!
-
-
+ 
+ 
 function turtle.eduinspect()
 --this checks the block using the inspect() function
   local success, block = turtle.inspect()
@@ -12,31 +12,49 @@ function turtle.eduinspect()
     return block.name --which is minecraft:blockname
   end
 end
-
+ 
 print(turtle.eduinspect()) --this prints the value, to the screen!
-
-function treecutter()--This is the function that makes the turtle cut the tree when it detects a wood block
-	if turtle.eduinspect() == "minecraft:log" then
-		for x = 1, 10 do
-   			turtle.dig()
-    			turtle.digUp()
-    			turtle.up()
-  		end
- 	else
-   		for x = 1, 10 do
-			turtle.down()
-	  	end
-	end
+ 
+function treecutter()-- This is the program that allows the turtle to cut a tree when it sees one
+--If it sees a tree in front of it, it will chop it down
+    if turtle.eduinspect() == "minecraft:log" then
+        for x = 1, 10 do
+            turtle.dig()
+                turtle.digUp()
+                turtle.up()
+    end
+ end
+ --This is so that it comes down after cutting the tree
+ for x = 1, 10 do
+            turtle.down()
+    end
 end
-local function movement()--This function allows the turtle to move to another tree once it has cut one down
-	turtle.turnRight()
-		for x = 1,4 do
-			turtle.forward()
-		end
-	turtle.turnLeft()
+local function movement()--This function allows the turtle to move from tree to tree
+    turtle.turnRight()
+        for x = 1,4 do
+            turtle.forward()
+        end
+    turtle.turnLeft()
 end
-for x = 1, 8 do
-	treecutter()
-    	movement()
+local function MoveBack()--Once the turtle has cut all the trees, this function will allow it to go back to where it started
+  turtle.turnLeft()
+    for x = 1, 38 do
+      turtle.forward()
+    end
+  turtle.turnRight()
 end
-
+local function chest()--Once the turtle is back at the start, the this function will allow the turtle to put the items
+--that it gathered into the chest beside it
+  turtle.turnLeft()
+  turtle.select (1)
+  turtle.drop()
+  turtle.select (2)
+  turtle.drop()
+  turtle.turnRight()
+end
+for x = 1, 9 do--The 9 can be changed depending on the number of trees
+    treecutter()
+        movement()
+end
+MoveBack()
+chest()
