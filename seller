@@ -1,15 +1,13 @@
---This orgram allows a turtle to sell the wood that it hs gotten from the treecutter program
--- This texts allows the users to know the prices for the wood
 print ("Hello, We sell oak wood here")
 print ("The prices for 16 oak wood which can be turned into a stack of oak wood planhs is")
 print ("is 1 diamond")
---This part of the program makes the turtle constantly inspect in front of it for diamonds
-__Once it receives diamonds, then it gives the amount of wood required to the person
-while true do
+while true do--This makes the turtle constantly check if something is in front of it and sucks it up
   turtle.suck()
-  if turtle.getItemDetail(2) = "minecraft : diamond" then
+  block : turtle.getItemDetail(2)
+  if block.name == "minecraft diamond"-- If it sees that it has gathered a diamond, it will give back the appropriate amount of wood
     turtle.select ( 1 )
     turtle.drop()
+    --Then it will turn and drop the diamonds in the hopper beside it
     turtle.turnLeft()
     turtle.select ( 2 )
     turtle.drop()
